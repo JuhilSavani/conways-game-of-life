@@ -1,6 +1,14 @@
+<div align="center">
+   
 # Conway's Game of Life
 
+#### A Mathematic Simulation Where Biology Meets Engineering
+
+<img src="https://github.com/user-attachments/assets/e8aff285-68dd-486e-9cfe-9c40b7a8b5c4" alt="simulation"/><br/>
+
 Conway's Game of Life is a cellular automaton devised by mathematician John Conway in 1970. It simulates the evolution of a grid of cells, which can be either alive or dead, based on a set of simple rules. This project implements the Game of Life in React.
+
+</div>
 
 --- 
 
