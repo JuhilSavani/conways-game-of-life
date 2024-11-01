@@ -24,12 +24,12 @@
   /* Spacing */
   --spacing-padding-app: 1.5rem 4rem;
   --spacing-padding-btn: 0.5rem 1rem;
-  --spacing-gap-large: 1.25rem;
+  --spacing-gap-large: 1.5rem;
   --spacing-gap-medium: 1rem;
 
   /* Sizing */
   --size-grid-cell: 16px;
-  --size-title-font: 2rem;
+  --size-title-font: 1.5rem;
   --size-btn-font: 1.05rem;
 
   /* Transition */
