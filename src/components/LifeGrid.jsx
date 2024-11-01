@@ -1,15 +1,51 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 
-const LifeGrid = ({ grid }) => {
+const LifeGrid = (props) => {
+  const { grid, setGrid } = props.props;
+  const [isMouseDown, setIsMouseDown] = useState(false);
+
+  const handleMouseDown = (row, col) => {
+    setIsMouseDown(true);
+    toggleCellState(row, col);
+  };
+
+  const handleMouseUp = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleMouseEnter = (row, col) => {
+    if (isMouseDown) {
+      toggleCellState(row, col);
+    }
+  };
+
+  const toggleCellState = (rowToToggle, colToToggle) => {
+    const newGrid = grid.map((row, rowIndex) =>
+      row.map((cell, colIndex) =>
+        rowIndex === rowToToggle && colIndex === colToToggle
+          ? cell
+            ? 0
+            : 1
+          : cell
+      )
+    );
+    setGrid(newGrid);
+  };
+
   return (
-    <div className="life-grid">
-      {grid.map((rows, originalRowIndex) =>
-        rows.map((col, originalColIndex) => (
+    <div
+      className="life-grid"
+      onMouseLeave={handleMouseUp} // Stop toggling if the cursor leaves the grid
+    >
+      {grid.map((rows, rowIndex) =>
+        rows.map((col, colIndex) => (
           <button
-            key={`${originalRowIndex}-${originalColIndex}`}
-            className={col ? "cell alive" : "cell dead"}
-            aria-label={col ? "Alive cell" : "Dead cell"}
-            onClick={() => console.log(`Cell clicked at ${originalRowIndex}, ${originalColIndex}`)} // Optional: handle click events
+            key={`${rowIndex}-${colIndex}`}
+            className={col ? "alive" : "dead"}
+            onMouseDown={() => handleMouseDown(rowIndex, colIndex)}
+            onMouseUp={handleMouseUp}
+            onMouseEnter={() => handleMouseEnter(rowIndex, colIndex)}
           />
         ))
       )}
@@ -18,7 +54,10 @@ const LifeGrid = ({ grid }) => {
 };
 
 LifeGrid.propTypes = {
-  grid: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  props: PropTypes.shape({
+    grid: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+    setGrid: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default LifeGrid;

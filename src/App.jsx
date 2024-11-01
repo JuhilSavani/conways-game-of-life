@@ -65,8 +65,8 @@ const App = () => {
   return (
     <div id="app">
       <div className="title">
-        <h1>Game of Life</h1>
-        <p>Conway&apos;s Game of Life simulation using React</p>
+        <h1>Conway&apos;s Game of Life</h1>
+        <p>A Celluar Automaton Where Biology Meets Engineering</p>
       </div>
       <ControlPanel
         props={{
@@ -77,7 +77,7 @@ const App = () => {
           playingRef,
         }}
       />
-      <LifeGrid grid={grid} />
+      <LifeGrid props={{ grid, setGrid }} />
     </div>
   );
 };
