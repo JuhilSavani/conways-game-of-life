@@ -2,7 +2,7 @@
    
 # Conway's Game of Life
 
-#### A Celluar Automaton Where Biology Meets Engineering
+#### A Cellular Automaton Where Biology Meets Engineering
 
 <img src="https://github.com/user-attachments/assets/e8aff285-68dd-486e-9cfe-9c40b7a8b5c4" alt="simulation"/><br/>
 
